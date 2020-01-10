@@ -1,0 +1,306 @@
+{
+    "llseek": [
+        [2, "whence"]
+    ],
+    "fseek": [
+        [2, "whence"]
+    ],
+    "pwrite": [
+        [0, "fd"]
+    ],
+    "siginterrupt": [
+        [0, "signal"]
+    ],
+    "sigvec": [
+        [0, "signal"]
+    ],
+    "raise": [
+        [1, "signal"]
+    ],
+    "signal": [
+        [0, "signal"]
+    ],
+    "write": [
+        [0, "fd"]
+    ],
+    "read": [
+        [0, "fd"]
+    ],
+    "preadv": [
+        [0, "fd"]
+    ],
+    "pwritev2": [
+        [0, "fd"]
+    ],
+    "pwritev": [
+        [0, "fd"]
+    ],
+    "fchmodat": [
+        [2, "file_mode"]
+    ],
+    "umask": [
+        [0, "file_mode"]
+    ],
+    "mkdir": [
+        [1, "file_mode"]
+    ],
+    "mkdirat": [
+        [2, "file_mode"]
+    ],
+    "mq_open": [
+        [1, "fd_mode"],
+        [2, "file_mode"]
+    ],
+    "statx": [
+        [2, "at_flags"]
+    ],
+    "kcmp": [
+        [2, "kcmp_types"]
+    ],
+    "getrlimit": [
+        [0, "rlimit_res"]
+    ],
+    "setrlimit": [
+        [0, "rlimit_res"]
+    ],
+    "prlimit": [
+        [1, "rlimit_res"]
+    ],
+    "sigqueue": [
+        [1, "signal"]
+    ],
+    "sigdelset": [
+        [1, "signal"]
+    ],
+    "faccessat": [
+        [2, "access"]
+    ],
+    "sigaction": [
+        [0, "signal"]
+    ],
+    "mprotect": [
+        [2, "prot"]
+    ],
+    "remap_file_pages": [
+        [2, "prot"],
+        [4, "map_type"]
+    ],
+    "lseek64": [
+        [2, "whence"]
+    ],
+    "bsd_signal": [
+        [0, "signal"]
+    ],
+    "lseek": [
+        [2, "whence"]
+    ],
+    "sigaddset": [
+        [1, "signal"]
+    ],
+    "access": [
+        [1, "access"]
+    ],
+    "fcntl": [
+        [0, "fd"]
+    ],
+    "killpg": [
+        [1, "signal"]
+    ],
+    "sigmask": [
+        [0, "signal"]
+    ],
+    "fdopen": [
+        [0, "fd"]
+    ],
+    "pkey_mprotect": [
+        [2, "prot"]
+    ],
+    "ioctl": [
+        [0, "fd"]
+    ],
+    "fsync": [
+        [0, "fd"]
+    ],
+    "readv": [
+        [0, "fd"]
+    ],
+    "pread": [
+        [0, "fd"]
+    ],
+    "chmod": [
+        [1, "file_mode"]
+    ],
+    "close": [
+        [0, "fd"]
+    ],
+    "euidaccess": [
+        [1, "access"]
+    ],
+    "fdatasync": [
+        [0, "fd"]
+    ],
+    "fchmod": [
+        [1, "file_mode"]
+    ],
+    "kill": [
+        [1, "signal"]
+    ],
+    "mmap2": [
+        [2, "prot"],
+        [3, "map_type"]
+    ],
+    "eaccess": [
+        [1, "access"]
+    ],
+    "_llseek": [
+        [4, "whence"]
+    ],
+    "sigismember": [
+        [1, "signal"]
+    ],
+    "mmap": [
+        [2, "prot"],
+        [3, "map_type"]
+    ],
+    "mremap": [
+        [3, "remap_type"]
+    ],
+    "preadv2": [
+        [0, "fd"]
+    ],
+    "open": [
+        [1, "fd_mode"]
+    ],
+    "sysv_signal": [
+        [0, "signal"]
+    ],
+    "writev": [
+        [0, "fd"]
+    ],
+    "syscall": [
+        [0, "syscall"]
+    ],
+    "getitimer": [
+        [0, "which"]
+    ],
+    "setitimer": [
+        [0, "which"]
+    ],
+    "timer_create": [
+        [0, "clockid"]
+    ],
+    "timerfd_create": [
+        [0, "clockid"]
+    ],
+    "clock_getres": [
+        [0, "clockid"]
+    ],
+    "clock_gettime": [
+        [0, "clockid"]
+    ],
+    "clock_settime": [
+        [0, "clockid"]
+    ],
+    "clock_nanosleep": [
+        [0, "clockid"]
+    ],
+    "lockf": [
+        [0, "lockf"]
+    ],
+    "socket": [
+        [0, "address_family"],
+        [1, "socket_type"]
+    ],
+    "setsockopt": [
+        [1, "socket_option_level"],
+        [2, "socket_option"]
+    ],
+    "exit": [
+        [0, "exit_status"]
+    ],
+    "_Exit": [
+        [0, "exit_status"]
+    ],
+    "send": [
+        [3, "message_flags"]
+    ],
+    "sendto": [
+        [3, "message_flags"]
+    ],
+    "sendmsg": [
+        [2, "message_flags"]
+    ],
+    "sendmmsg": [
+        [3, "message_flags"]
+    ],
+    "recv": [
+        [3, "message_flags"]
+    ],
+    "recvfrom": [
+        [3, "message_flags"]
+    ],
+    "recvmsg": [
+        [2, "message_flags"]
+    ],
+    "recvmmsg": [
+        [3, "message_flags"]
+    ],
+    "htonl": [
+        [0, "hostlong"]
+    ],
+    "shutdown": [
+        [1, "shutdown_type"]
+    ],
+    "fcntl": [
+        [1, "fcntl_cmd"]
+    ],
+    "flock": [
+        [1, "flock_ops"]
+    ],
+    "madvise": [
+        [2, "madvice"]
+    ],
+    "ptrace": [
+        [0, "ptrace_request"]
+    ],
+    "getnameinfo": [
+        [6, "nameinfo_flags"]
+    ],
+    "msync": [
+        [2, "msync_flags"]
+    ],
+    "mlock2": [
+        [2, "mlock_flags"]
+    ],
+    "mlockall": [
+        [0, "mlock_flags"]
+    ],
+    "sysconf": [
+        [0, "sysconf_name"]
+    ],
+    "fpathconf": [
+        [1, "pathconf_name"]
+    ],
+    "pathconf": [
+        [1, "pathconf_name"]
+    ],
+    "confstr": [
+        [0, "confstr_name"]
+    ],
+    "sigprocmask": [
+        [0, "sig_how"]
+    ],
+    "rt_sigprocmask": [
+        [0, "sig_how"]
+    ],
+    "prctl": [
+        [0, "pr_option"]
+    ],
+    "setvbuf": [
+        [2, "buf_mode"]
+    ],
+    "seccomp": [
+        [0, "seccomp_op"],
+        [1, "seccomp_filter_flag"]
+    ]
+}
