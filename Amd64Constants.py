@@ -15,7 +15,7 @@ def run():
         popup('Not an ELF file, cannot continue')
         return
 
-    arch = 'Amd64'
+    arch = 'amd64'
     abi  = 'default'
 
     Constants(currentProgram, currentSelection, monitor, state, arch, abi)
