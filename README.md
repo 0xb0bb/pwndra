@@ -9,24 +9,26 @@ A collection of pwn/CTF related utilities for Ghidra
 This utility will attempt to replace known constants in functions with
 their human readable counterpart.
 
+![pwndra constants](https://github.com/0xb0bb/pwndra/blob/master/docs/images/pwndra_constants.png?raw=true)
+
 #### Usage
 
 There are several frontends available:
 
-	* aarch64
-	* amd64
-	* arm
-	* hppa
-	* i386
-	* m68k
-	* mips (n32/o32/n64)
-	* powerpc
-	* powerpc64
-	* sh
-	* sh4
-	* sparc
-	* sparc64
-	* thumb
+* aarch64
+* amd64
+* arm
+* hppa
+* i386
+* m68k
+* mips (n32/o32/n64)
+* powerpc
+* powerpc64
+* sh
+* sh4
+* sparc
+* sparc64
+* thumb
 
 You can either run one of those frontend scripts directly (through the
 `Script Manager` or if you clicked `In Tool` you can access a menu; 
