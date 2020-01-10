@@ -34,7 +34,7 @@ You can either run one of those frontend scripts directly (through the
 `Script Manager` or if you clicked `In Tool` you can access a menu; 
 `Analysis` -> `Pwn` -> `Constants`).
 
-There is an `Auto` frontend that will atuomatically detect the current loaded
+There is an `Auto` frontend that will automatically detect the current loaded
 program for you. This can also be accessed with the keyboard shortcut: `ctrl`+`6`.
 
 The scripts have two modes of operation, the default is a global replacement
@@ -50,4 +50,4 @@ script directory by clicking the `Script Directories` button within the
 
 Some of the scripts have keyboard shortcuts or add menu items to Ghidra (visible
 under `Analysis` -> `Pwn`) in order to integrate the scripts into Ghidra you must
-click the `In Tool` checkbox next to the script on the `Script Manager` window.
+click the `In Tool` checkbox next to each script on the `Script Manager` window.
