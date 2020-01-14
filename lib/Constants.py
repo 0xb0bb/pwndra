@@ -208,6 +208,7 @@ class Constants:
                 break
 
 
+    # Load data in a multilayered manner
     def loadData(self, kind, arch, abi):
 
         final  = None
@@ -215,7 +216,8 @@ class Constants:
         for layer in layers:
 
             filepath = os.path.dirname(os.path.realpath(__file__))
-            filename = '%s/data/%s_%s.json' % (filepath, layer, kind)
+            filepath = '%s/../data/constants/%s_%s.json' % (filepath, layer, kind)
+            filename = os.path.realpath(filepath)
 
             if os.path.isfile(filename):
                 data = None

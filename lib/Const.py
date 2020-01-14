@@ -13,7 +13,8 @@ class Const:
     def load(self, name):
 
         filepath = os.path.dirname(os.path.realpath(__file__))
-        filename = '%s/data/%s_constants.json' % (filepath, name)
+        filepath = '%s/../data/constants/%s_constants.json' % (filepath, name)
+        filename = os.path.realpath(filepath)
 
         if os.path.isfile(filename):
             data = []
