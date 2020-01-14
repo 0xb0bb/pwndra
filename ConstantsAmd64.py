@@ -6,7 +6,7 @@
 #@menupath Analysis.Pwn.Constants.amd64
 #@toolbar 
 
-from constants.Constants import Constants
+from lib.Constants import Constants
 import ghidra.app.util.opinion.ElfLoader as ElfLoader
 
 def run():
