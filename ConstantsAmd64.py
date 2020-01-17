@@ -1,5 +1,4 @@
-# Find constant values in function calls and returns and update the code to
-# display the human readable name(s).
+# Replace Linux/AMD64 numeric constants with human readable names.
 #@author b0bb
 #@category Pwn
 #@keybinding

@@ -1,11 +1,3 @@
-# Find constant values in function calls and returns and update the code to
-# display the human readable name(s).
-#@author b0bb
-#@category Pwn
-#@keybinding ctrl 6
-#@menupath Analysis.Pwn.Constants.Auto
-#@toolbar 
-
 import ghidra.program.model.lang.OperandType as OperandType
 import ghidra.program.model.lang.Register as Register
 import ghidra.app.emulator.EmulatorHelper as EmulatorHelper
@@ -48,7 +40,7 @@ class Constants:
         for addr in addresses:
 
             if self.monitor.isCancelled():
-                return doCancel()
+                return self.doCancel()
 
             caller = funcManager.getFunctionContaining(addr)
             if caller is None:
@@ -92,7 +84,7 @@ class Constants:
         while curr is not None:
 
             if self.monitor.isCancelled():
-                return doCancel()
+                return self.doCancel()
 
             if curr.getFlowType().toString() != 'FALL_THROUGH':
                 break
@@ -114,7 +106,7 @@ class Constants:
             emulatorHelper.step(self.monitor)
 
             if self.monitor.isCancelled():
-                return doCancel()
+                return self.doCancel()
 
             address = emulatorHelper.getExecutionAddress()
             current = self.currentProgram.getListing().getCodeUnitAt(address)
@@ -164,7 +156,7 @@ class Constants:
         for const in ARGUMENTS[kind]['vals']:
 
             if self.monitor.isCancelled():
-                return doCancel()
+                return self.doCancel()
 
             if ARGUMENTS[kind]['type'] == 'bitwise':
                 if value & const[1] > 0:
@@ -185,12 +177,12 @@ class Constants:
         while done is None and inst is not None:
 
             if self.monitor.isCancelled():
-                return doCancel()
+                return self.doCancel()
 
             for i in range(inst.getNumOperands()):
 
                 if self.monitor.isCancelled():
-                    return doCancel()
+                    return self.doCancel()
 
                 if inst.getOperandType(i) == OperandType.SCALAR:
                     scalar = inst.getScalar(i).getUnsignedValue()
@@ -206,6 +198,12 @@ class Constants:
 
             if inst.getFlowType().toString() != 'FALL_THROUGH':
                 break
+
+
+    # Cancel message
+    def doCancel(self):
+
+        print 'Operation cancelled'
 
 
     # Load data in a multilayered manner
@@ -297,7 +295,7 @@ class Constants:
         for func in self.currentProgram.getListing().getFunctions(True):
 
             if self.monitor.isCancelled():
-                return doCancel()
+                return self.doCancel()
 
             if func.getName() not in FUNCTIONS:
                 continue
@@ -315,7 +313,7 @@ class Constants:
                         continue
 
                 if self.monitor.isCancelled():
-                    return doCancel()
+                    return self.doCancel()
 
                 for arg in FUNCTIONS[func.getName()]:
 

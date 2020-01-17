@@ -1,4 +1,4 @@
-# Replace Solaris/Sparc64 numeric constants with human readable names.
+# Replace Linux/Sparc64 numeric constants with human readable names.
 #@author b0bb
 #@category Pwn
 #@keybinding

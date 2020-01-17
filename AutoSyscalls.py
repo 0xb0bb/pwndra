@@ -1,17 +1,18 @@
-# Replace Linux/Auto-Detected numeric constants with human readable names.
+# Annotate Linux/Auto-Detected system calls and arguments.
 #@author b0bb
 #@category Pwn
-#@keybinding ctrl 6
-#@menupath Analysis.Pwn.Constants.Auto
+#@keybinding ctrl 7
+#@menupath Analysis.Pwn.Syscalls.Auto
 #@toolbar 
 
 from lib.Common import *
-from lib.Constants import Constants
+from lib.Syscalls import Syscalls
 import ghidra.app.util.opinion.ElfLoader as ElfLoader
 
 DEFAULT_ABIS = {
     'mips':   'n32',
-    'mips64': 'n64'
+    'mips64': 'n64',
+    'arm':    'eabi'
 }
 
 
@@ -27,7 +28,7 @@ def run():
         return
 
     abi = 'default' if arch not in DEFAULT_ABIS else DEFAULT_ABIS[arch]
-    obj = Constants(currentProgram, currentSelection, monitor, state, arch, abi)
+    obj = Syscalls(currentProgram, currentSelection, monitor, arch, abi)
 
 
 run()

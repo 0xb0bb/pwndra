@@ -1,11 +1,11 @@
-# Replace Linux/Sparc numeric constants with human readable names.
+# Annotate Linux/Hppa system calls and arguments.
 #@author b0bb
 #@category Pwn
 #@keybinding
-#@menupath Analysis.Pwn.Constants.sparc
+#@menupath Analysis.Pwn.Syscalls.hppa
 #@toolbar 
 
-from lib.Constants import Constants
+from lib.Syscalls import Syscalls
 import ghidra.app.util.opinion.ElfLoader as ElfLoader
 
 def run():
@@ -14,10 +14,10 @@ def run():
         popup('Not an ELF file, cannot continue')
         return
 
-    arch = 'sparc'
+    arch = 'hppa'
     abi  = 'default'
 
-    Constants(currentProgram, currentSelection, monitor, state, arch, abi)
+    obj = Syscalls(currentProgram, currentSelection, monitor, arch, abi)
 
 
 run()

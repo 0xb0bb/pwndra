@@ -1,0 +1,2237 @@
+{
+    "io_setup":
+    {
+        "ret": "int",
+        "args": ["unsigned nr_events", "aio_context_t *ctx_idp"]
+    },
+    "io_destroy":
+    {
+        "ret": "int",
+        "args": ["aio_context_t ctx_id"]
+    },
+    "io_submit":
+    {
+        "ret": "int",
+        "args": ["aio_context_t ctx_id", "long nr", "struct iocb **iocbpp"]
+    },
+    "io_cancel":
+    {
+        "ret": "int",
+        "args": ["aio_context_t ctx_id", "struct iocb *iocb", "struct io_event *result"]
+    },
+    "io_getevents":
+    {
+        "ret": "int",
+        "args": ["aio_context_t ctx_id", "long min_nr", "long nr", "struct io_event *events", "struct timespec *timeout"]
+    },
+    "setxattr":
+    {
+        "ret": "int",
+        "args": ["char *path", "char *name", "void *value", "size_t size", "int flags"]
+    },
+    "lsetxattr":
+    {
+        "ret": "int",
+        "args": ["char *path", "char *name", "void *value", "size_t size", "int flags"]
+    },
+    "fsetxattr":
+    {
+        "ret": "int",
+        "args": ["int fd", "char *name", "void *value", "size_t size", "int flags"]
+    },
+    "getxattr":
+    {
+        "ret": "ssize_t",
+        "args": ["char *path", "char *name", "void *value", "size_t size"]
+    },
+    "lgetxattr":
+    {
+        "ret": "ssize_t",
+        "args": ["char *path", "char *name", "void *value", "size_t size"]
+    },
+    "fgetxattr":
+    {
+        "ret": "ssize_t",
+        "args": ["int fd", "char *name", "void *value", "size_t size"]
+    },
+    "listxattr":
+    {
+        "ret": "ssize_t",
+        "args": ["char *path", "char *list", "size_t size"]
+    },
+    "llistxattr":
+    {
+        "ret": "ssize_t",
+        "args": ["char *path", "char *list", "size_t size"]
+    },
+    "flistxattr":
+    {
+        "ret": "ssize_t",
+        "args": ["int fd", "char *list", "size_t size"]
+    },
+    "removexattr":
+    {
+        "ret": "int",
+        "args": ["char *path", "char *name"]
+    },
+    "lremovexattr":
+    {
+        "ret": "int",
+        "args": ["char *path", "char *name"]
+    },
+    "fremovexattr":
+    {
+        "ret": "int",
+        "args": ["int fd", "char *name"]
+    },
+    "getcwd":
+    {
+        "ret": "char *",
+        "args": ["char *buf", "size_t size"]
+    },
+    "lookup_dcookie":
+    {
+        "ret": "int",
+        "args": ["u64 cookie", "char *buffer", "size_t len"]
+    },
+    "eventfd2":
+    {
+        "ret": "int",
+        "args": ["unsigned int initval", "int flags"]
+    },
+    "epoll_create1":
+    {
+        "ret": "int",
+        "args": ["int flags"]
+    },
+    "epoll_ctl":
+    {
+        "ret": "int",
+        "args": ["int epfd", "int op", "int fd", "struct epoll_event *event"]
+    },
+    "epoll_pwait":
+    {
+        "ret": "int",
+        "args": ["int epfd", "struct epoll_event *events", "int maxevents", "int timeout", "sigset_t *sigmask"]
+    },
+    "dup":
+    {
+        "ret": "int",
+        "args": ["int oldfd"]
+    },
+    "dup3":
+    {
+        "ret": "int",
+        "args": ["int oldfd", "int newfd", "int flags"]
+    },
+    "fcntl":
+    {
+        "ret": "int",
+        "args": ["int fd", "int cmd"]
+    },
+    "inotify_init1":
+    {
+        "ret": "int",
+        "args": ["int flags"]
+    },
+    "inotify_add_watch":
+    {
+        "ret": "int",
+        "args": ["int fd", "char *pathname", "uint32_t mask"]
+    },
+    "inotify_rm_watch":
+    {
+        "ret": "int",
+        "args": ["int fd", "int wd"]
+    },
+    "ioctl":
+    {
+        "ret": "int",
+        "args": ["int fd", "unsigned long request"]
+    },
+    "ioprio_set":
+    {
+        "ret": "int",
+        "args": ["int which", "int who", "int ioprio"]
+    },
+    "ioprio_get":
+    {
+        "ret": "int",
+        "args": ["int which", "int who"]
+    },
+    "flock":
+    {
+        "ret": "int",
+        "args": ["int fd", "int operation"]
+    },
+    "mknodat":
+    {
+        "ret": "int",
+        "args": ["int dirfd", "char *pathname", "mode_t mode", "dev_t dev"]
+    },
+    "mkdirat":
+    {
+        "ret": "int",
+        "args": ["int dirfd", "char *pathname", "mode_t mode"]
+    },
+    "unlinkat":
+    {
+        "ret": "int",
+        "args": ["int dirfd", "char *pathname", "int flags"]
+    },
+    "symlinkat":
+    {
+        "ret": "int",
+        "args": ["char *target", "int newdirfd", "char *linkpath"]
+    },
+    "linkat":
+    {
+        "ret": "int",
+        "args": ["int olddirfd", "char *oldpath", "int newdirfd", "char *newpath", "int flags"]
+    },
+    "renameat":
+    {
+        "ret": "int",
+        "args": ["int olddirfd", "char *oldpath", "int newdirfd", "char *newpath"]
+    },
+    "umount2":
+    {
+        "ret": "int",
+        "args": ["char *target", "int flags"]
+    },
+    "mount":
+    {
+        "ret": "int",
+        "args": ["char *source", "char *target", "char *filesystemtype", "unsigned long mountflags", "void *data"]
+    },
+    "pivot_root":
+    {
+        "ret": "int",
+        "args": ["char *new_root", "char *put_old"]
+    },
+    "nfsservctl":
+    {
+        "ret": "long",
+        "args": ["int cmd", "struct nfsctl_arg *argp", "union nfsctl_res *resp"]
+    },
+    "statfs":
+    {
+        "ret": "int",
+        "args": ["char *path", "struct statfs *buf"]
+    },
+    "fstatfs":
+    {
+        "ret": "int",
+        "args": ["int fd", "struct statfs *buf"]
+    },
+    "truncate":
+    {
+        "ret": "int",
+        "args": ["char *path", "off_t length"]
+    },
+    "ftruncate":
+    {
+        "ret": "int",
+        "args": ["int fd", "off_t length"]
+    },
+    "fallocate":
+    {
+        "ret": "int",
+        "args": ["int fd", "int mode", "off_t offset", "off_t len"]
+    },
+    "faccessat":
+    {
+        "ret": "int",
+        "args": ["int dirfd", "char *pathname", "int mode", "int flags"]
+    },
+    "chdir":
+    {
+        "ret": "int",
+        "args": ["char *path"]
+    },
+    "fchdir":
+    {
+        "ret": "int",
+        "args": ["int fd"]
+    },
+    "chroot":
+    {
+        "ret": "int",
+        "args": ["char *path"]
+    },
+    "fchmod":
+    {
+        "ret": "int",
+        "args": ["int fd", "mode_t mode"]
+    },
+    "fchmodat":
+    {
+        "ret": "int",
+        "args": ["int dirfd", "char *pathname", "mode_t mode", "int flags"]
+    },
+    "fchownat":
+    {
+        "ret": "int",
+        "args": ["int dirfd", "char *pathname", "uid_t owner", "gid_t group", "int flags"]
+    },
+    "fchown":
+    {
+        "ret": "int",
+        "args": ["int fd", "uid_t owner", "gid_t group"]
+    },
+    "openat":
+    {
+        "ret": "int",
+        "args": ["int dirfd", "char *pathname", "int flags", "mode_t mode"]
+    },
+    "close":
+    {
+        "ret": "int",
+        "args": ["int fd"]
+    },
+    "vhangup":
+    {
+        "ret": "int",
+        "args": []
+    },
+    "pipe2":
+    {
+        "ret": "int",
+        "args": ["int pipefd[2]", "int flags"]
+    },
+    "quotactl":
+    {
+        "ret": "int",
+        "args": ["int cmd", "char *special", "int id", "caddr_t addr"]
+    },
+    "getdents64":
+    {
+        "ret": "int",
+        "args": ["unsigned int fd", "struct linux_dirent64 *dirp", "unsigned int count"]
+    },
+    "lseek":
+    {
+        "ret": "off_t",
+        "args": ["int fd", "off_t offset", "int whence"]
+    },
+    "read":
+    {
+        "ret": "ssize_t",
+        "args": ["int fd", "void *buf", "size_t count"]
+    },
+    "write":
+    {
+        "ret": "ssize_t",
+        "args": ["int fd", "void *buf", "size_t count"]
+    },
+    "readv":
+    {
+        "ret": "ssize_t",
+        "args": ["int fd", "struct iovec *iov", "int iovcnt"]
+    },
+    "writev":
+    {
+        "ret": "ssize_t",
+        "args": ["int fd", "struct iovec *iov", "int iovcnt"]
+    },
+    "pread64":
+    {
+        "ret": "ssize_t",
+        "args": ["int fd", "void *buf", "size_t count", "off_t offset"]
+    },
+    "pwrite64":
+    {
+        "ret": "ssize_t",
+        "args": ["int fd", "void *buf", "size_t count", "off_t offset"]
+    },
+    "preadv":
+    {
+        "ret": "ssize_t",
+        "args": ["int fd", "struct iovec *iov", "int iovcnt", "off_t offset"]
+    },
+    "pwritev":
+    {
+        "ret": "ssize_t",
+        "args": ["int fd", "struct iovec *iov", "int iovcnt", "off_t offset"]
+    },
+    "sendfile":
+    {
+        "ret": "ssize_t",
+        "args": ["int out_fd", "int in_fd", "off_t *offset", "size_t count"]
+    },
+    "pselect6":
+    {
+        "ret": "int",
+        "args": ["int n", "fd_set *inp", "fd_set *outp", "fd_set *exp", "struct timespec *tsp", "void *sig"]
+    },
+    "ppoll":
+    {
+        "ret": "int",
+        "args": ["struct pollfd *fds", "nfds_t nfds", "struct timespec *tmo_p", "sigset_t *sigmask"]
+    },
+    "signalfd4":
+    {
+        "ret": "int",
+        "args": ["int ufd", "sigset_t *user_mask", "size_t sizemask", "int flags"]
+    },
+    "vmsplice":
+    {
+        "ret": "ssize_t",
+        "args": ["int fd", "struct iovec *iov", "unsigned long nr_segs", "unsigned int flags"]
+    },
+    "splice":
+    {
+        "ret": "ssize_t",
+        "args": ["int fd_in", "loff_t *off_in", "int fd_out", "loff_t *off_out", "size_t len", "unsigned int flags"]
+    },
+    "tee":
+    {
+        "ret": "ssize_t",
+        "args": ["int fd_in", "int fd_out", "size_t len", "unsigned int flags"]
+    },
+    "readlinkat":
+    {
+        "ret": "ssize_t",
+        "args": ["int dirfd", "char *pathname", "char *buf", "size_t bufsiz"]
+    },
+    "newfstatat":
+    {
+        "ret": "int",
+        "args": ["int dfd", "char *filename", "struct stat *statbuf", "int flag"]
+    },
+    "fstat":
+    {
+        "ret": "int",
+        "args": ["int fd", "struct stat *statbuf"]
+    },
+    "sync":
+    {
+        "ret": "void",
+        "args": []
+    },
+    "fsync":
+    {
+        "ret": "int",
+        "args": ["int fd"]
+    },
+    "fdatasync":
+    {
+        "ret": "int",
+        "args": ["int fd"]
+    },
+    "sync_file_range":
+    {
+        "ret": "int",
+        "args": ["int fd", "off64_t offset", "off64_t nbytes", "unsigned int flags"]
+    },
+    "timerfd_create":
+    {
+        "ret": "int",
+        "args": ["int clockid", "int flags"]
+    },
+    "timerfd_settime":
+    {
+        "ret": "int",
+        "args": ["int fd", "int flags", "struct itimerspec *new_value", "struct itimerspec *old_value"]
+    },
+    "timerfd_gettime":
+    {
+        "ret": "int",
+        "args": ["int fd", "struct itimerspec *curr_value"]
+    },
+    "utimensat":
+    {
+        "ret": "int",
+        "args": ["int dirfd", "char *pathname", "struct timespec times[2]", "int flags"]
+    },
+    "acct":
+    {
+        "ret": "int",
+        "args": ["char *filename"]
+    },
+    "capget":
+    {
+        "ret": "int",
+        "args": ["cap_user_header_t hdrp", "cap_user_data_t datap"]
+    },
+    "capset":
+    {
+        "ret": "int",
+        "args": ["cap_user_header_t hdrp", "cap_user_data_t datap"]
+    },
+    "personality":
+    {
+        "ret": "int",
+        "args": ["unsigned long persona"]
+    },
+    "exit":
+    {
+        "ret": "void",
+        "args": ["int status"]
+    },
+    "exit_group":
+    {
+        "ret": "void",
+        "args": ["int status"]
+    },
+    "waitid":
+    {
+        "ret": "int",
+        "args": ["idtype_t idtype", "id_t id", "siginfo_t *infop", "int options"]
+    },
+    "set_tid_address":
+    {
+        "ret": "long",
+        "args": ["int *tidptr"]
+    },
+    "unshare":
+    {
+        "ret": "int",
+        "args": ["int flags"]
+    },
+    "futex":
+    {
+        "ret": "int",
+        "args": ["int *uaddr", "int futex_op", "int val", "struct timespec *timeout", "int *uaddr2", "int val3"]
+    },
+    "set_robust_list":
+    {
+        "ret": "long",
+        "args": ["struct robust_list_head *head", "size_t len"]
+    },
+    "get_robust_list":
+    {
+        "ret": "long",
+        "args": ["int pid", "struct robust_list_head **head_ptr", "size_t *len_ptr"]
+    },
+    "nanosleep":
+    {
+        "ret": "int",
+        "args": ["struct timespec *req", "struct timespec *rem"]
+    },
+    "getitimer":
+    {
+        "ret": "int",
+        "args": ["int which", "struct itimerval *curr_value"]
+    },
+    "setitimer":
+    {
+        "ret": "int",
+        "args": ["int which", "struct itimerval *new_value", "struct itimerval *old_value"]
+    },
+    "kexec_load":
+    {
+        "ret": "long",
+        "args": ["unsigned long entry", "unsigned long nr_segments", "struct kexec_segment *segments", "unsigned long flags"]
+    },
+    "init_module":
+    {
+        "ret": "int",
+        "args": ["void *module_image", "unsigned long len", "char *param_values"]
+    },
+    "delete_module":
+    {
+        "ret": "int",
+        "args": ["char *name", "int flags"]
+    },
+    "timer_create":
+    {
+        "ret": "int",
+        "args": ["clockid_t clockid", "struct sigevent *sevp", "timer_t *timerid"]
+    },
+    "timer_gettime":
+    {
+        "ret": "int",
+        "args": ["timer_t timerid", "struct itimerspec *curr_value"]
+    },
+    "timer_getoverrun":
+    {
+        "ret": "int",
+        "args": ["timer_t timerid"]
+    },
+    "timer_settime":
+    {
+        "ret": "int",
+        "args": ["timer_t timerid", "int flags", "struct itimerspec *new_value", "struct itimerspec *old_value"]
+    },
+    "timer_delete":
+    {
+        "ret": "int",
+        "args": ["timer_t timerid"]
+    },
+    "clock_settime":
+    {
+        "ret": "int",
+        "args": ["clockid_t clk_id", "struct timespec *tp"]
+    },
+    "clock_gettime":
+    {
+        "ret": "int",
+        "args": ["clockid_t clk_id", "struct timespec *tp"]
+    },
+    "clock_getres":
+    {
+        "ret": "int",
+        "args": ["clockid_t clk_id", "struct timespec *res"]
+    },
+    "clock_nanosleep":
+    {
+        "ret": "int",
+        "args": ["clockid_t clock_id", "int flags", "struct timespec *request", "struct timespec *remain"]
+    },
+    "syslog":
+    {
+        "ret": "int",
+        "args": ["int type", "char *bufp", "int len"]
+    },
+    "ptrace":
+    {
+        "ret": "long",
+        "args": ["enum __ptrace_request request", "pid_t pid", "void *addr", "void *data"]
+    },
+    "sched_setparam":
+    {
+        "ret": "int",
+        "args": ["pid_t pid", "struct sched_param *param"]
+    },
+    "sched_setscheduler":
+    {
+        "ret": "int",
+        "args": ["pid_t pid", "int policy", "struct sched_param *param"]
+    },
+    "sched_getscheduler":
+    {
+        "ret": "int",
+        "args": ["pid_t pid"]
+    },
+    "sched_getparam":
+    {
+        "ret": "int",
+        "args": ["pid_t pid", "struct sched_param *param"]
+    },
+    "sched_setaffinity":
+    {
+        "ret": "int",
+        "args": ["pid_t pid", "size_t cpusetsize", "cpu_set_t *mask"]
+    },
+    "sched_getaffinity":
+    {
+        "ret": "int",
+        "args": ["pid_t pid", "size_t cpusetsize", "cpu_set_t *mask"]
+    },
+    "sched_yield":
+    {
+        "ret": "int",
+        "args": []
+    },
+    "sched_get_priority_max":
+    {
+        "ret": "int",
+        "args": ["int policy"]
+    },
+    "sched_get_priority_min":
+    {
+        "ret": "int",
+        "args": ["int policy"]
+    },
+    "sched_rr_get_interval":
+    {
+        "ret": "int",
+        "args": ["pid_t pid", "struct timespec *tp"]
+    },
+    "restart_syscall":
+    {
+        "ret": "int",
+        "args": []
+    },
+    "kill":
+    {
+        "ret": "int",
+        "args": ["pid_t pid", "int sig"]
+    },
+    "tkill":
+    {
+        "ret": "int",
+        "args": ["int tid", "int sig"]
+    },
+    "tgkill":
+    {
+        "ret": "int",
+        "args": ["int tgid", "int tid", "int sig"]
+    },
+    "sigaltstack":
+    {
+        "ret": "int",
+        "args": ["stack_t *ss", "stack_t *old_ss"]
+    },
+    "rt_sigsuspend":
+    {
+        "ret": "int",
+        "args": []
+    },
+    "rt_sigaction":
+    {
+        "ret": "int",
+        "args": ["int signum", "struct sigaction *act", "struct sigaction *oldact"]
+    },
+    "rt_sigprocmask":
+    {
+        "ret": "int",
+        "args": ["int how", "sigset_t *set", "sigset_t *oldset", "size_t sigsetsize"]
+    },
+    "rt_sigpending":
+    {
+        "ret": "int",
+        "args": ["sigset_t *set"]
+    },
+    "rt_sigtimedwait":
+    {
+        "ret": "int",
+        "args": ["sigset_t *set", "siginfo_t *info", "struct timespec *timeout"]
+    },
+    "rt_sigqueueinfo":
+    {
+        "ret": "int",
+        "args": ["pid_t tgid", "int sig", "siginfo_t *uinfo"]
+    },
+    "rt_sigreturn":
+    {
+        "ret": "int",
+        "args": []
+    },
+    "setpriority":
+    {
+        "ret": "int",
+        "args": ["int which", "id_t who", "int prio"]
+    },
+    "getpriority":
+    {
+        "ret": "int",
+        "args": ["int which", "id_t who"]
+    },
+    "reboot":
+    {
+        "ret": "int",
+        "args": ["int magic", "int magic2", "int cmd", "void *arg"]
+    },
+    "setregid":
+    {
+        "ret": "int",
+        "args": ["gid_t rgid", "gid_t egid"]
+    },
+    "setgid":
+    {
+        "ret": "int",
+        "args": ["gid_t gid"]
+    },
+    "setreuid":
+    {
+        "ret": "int",
+        "args": ["uid_t ruid", "uid_t euid"]
+    },
+    "setuid":
+    {
+        "ret": "int",
+        "args": ["uid_t uid"]
+    },
+    "setresuid":
+    {
+        "ret": "int",
+        "args": ["uid_t ruid", "uid_t euid", "uid_t suid"]
+    },
+    "getresuid":
+    {
+        "ret": "int",
+        "args": ["uid_t *ruid", "uid_t *euid", "uid_t *suid"]
+    },
+    "setresgid":
+    {
+        "ret": "int",
+        "args": ["gid_t rgid", "gid_t egid", "gid_t sgid"]
+    },
+    "getresgid":
+    {
+        "ret": "int",
+        "args": ["gid_t *rgid", "gid_t *egid", "gid_t *sgid"]
+    },
+    "setfsuid":
+    {
+        "ret": "int",
+        "args": ["uid_t fsuid"]
+    },
+    "setfsgid":
+    {
+        "ret": "int",
+        "args": ["uid_t fsgid"]
+    },
+    "times":
+    {
+        "ret": "clock_t",
+        "args": ["struct tms *buf"]
+    },
+    "setpgid":
+    {
+        "ret": "int",
+        "args": ["pid_t pid", "pid_t pgid"]
+    },
+    "getpgid":
+    {
+        "ret": "pid_t",
+        "args": ["pid_t pid"]
+    },
+    "getsid":
+    {
+        "ret": "pid_t",
+        "args": ["pid_t pid"]
+    },
+    "setsid":
+    {
+        "ret": "pid_t",
+        "args": []
+    },
+    "getgroups":
+    {
+        "ret": "int",
+        "args": ["int size", "gid_t *list"]
+    },
+    "setgroups":
+    {
+        "ret": "int",
+        "args": ["size_t size", "gid_t *list"]
+    },
+    "uname":
+    {
+        "ret": "int",
+        "args": ["struct utsname *buf"]
+    },
+    "sethostname":
+    {
+        "ret": "int",
+        "args": ["char *name", "size_t len"]
+    },
+    "setdomainname":
+    {
+        "ret": "int",
+        "args": ["char *name", "size_t len"]
+    },
+    "getrlimit":
+    {
+        "ret": "int",
+        "args": ["int resource", "struct rlimit *rlim"]
+    },
+    "setrlimit":
+    {
+        "ret": "int",
+        "args": ["int resource", "struct rlimit *rlim"]
+    },
+    "getrusage":
+    {
+        "ret": "int",
+        "args": ["int who", "struct rusage *usage"]
+    },
+    "umask":
+    {
+        "ret": "mode_t",
+        "args": ["mode_t mask"]
+    },
+    "prctl":
+    {
+        "ret": "int",
+        "args": ["int option", "unsigned long arg2", "unsigned long arg3", "unsigned long arg4", "unsigned long arg5"]
+    },
+    "getcpu":
+    {
+        "ret": "int",
+        "args": ["unsigned *cpu", "unsigned *node", "struct getcpu_cache *tcache"]
+    },
+    "gettimeofday":
+    {
+        "ret": "int",
+        "args": ["struct timeval *tv", "struct timezone *tz"]
+    },
+    "settimeofday":
+    {
+        "ret": "int",
+        "args": ["struct timeval *tv", "struct timezone *tz"]
+    },
+    "adjtimex":
+    {
+        "ret": "int",
+        "args": ["struct timex *buf"]
+    },
+    "getpid":
+    {
+        "ret": "pid_t",
+        "args": []
+    },
+    "getppid":
+    {
+        "ret": "pid_t",
+        "args": []
+    },
+    "getuid":
+    {
+        "ret": "uid_t",
+        "args": []
+    },
+    "geteuid":
+    {
+        "ret": "uid_t",
+        "args": []
+    },
+    "getgid":
+    {
+        "ret": "gid_t",
+        "args": []
+    },
+    "getegid":
+    {
+        "ret": "gid_t",
+        "args": []
+    },
+    "gettid":
+    {
+        "ret": "pid_t",
+        "args": []
+    },
+    "sysinfo":
+    {
+        "ret": "int",
+        "args": ["struct sysinfo *info"]
+    },
+    "mq_open":
+    {
+        "ret": "mqd_t",
+        "args": ["char *name", "int oflag", "mode_t mode", "struct mq_attr *attr"]
+    },
+    "mq_unlink":
+    {
+        "ret": "int",
+        "args": ["char *name"]
+    },
+    "mq_timedsend":
+    {
+        "ret": "int",
+        "args": ["mqd_t mqdes", "char *msg_ptr", "size_t msg_len", "unsigned int msg_prio", "struct timespec *abs_timeout"]
+    },
+    "mq_timedreceive":
+    {
+        "ret": "ssize_t",
+        "args": ["mqd_t mqdes", "char *msg_ptr", "size_t msg_len", "unsigned int *msg_prio", "struct timespec *abs_timeout"]
+    },
+    "mq_notify":
+    {
+        "ret": "int",
+        "args": ["mqd_t mqdes", "struct sigevent *sevp"]
+    },
+    "mq_getsetattr":
+    {
+        "ret": "int",
+        "args": ["mqd_t mqdes", "struct mq_attr *newattr", "struct mq_attr *oldattr"]
+    },
+    "msgget":
+    {
+        "ret": "int",
+        "args": ["key_t key", "int msgflg"]
+    },
+    "msgctl":
+    {
+        "ret": "int",
+        "args": ["int msqid", "int cmd", "struct msqid_ds *buf"]
+    },
+    "msgrcv":
+    {
+        "ret": "ssize_t",
+        "args": ["int msqid", "void *msgp", "size_t msgsz", "long msgtyp", "int msgflg"]
+    },
+    "msgsnd":
+    {
+        "ret": "int",
+        "args": ["int msqid", "void *msgp", "size_t msgsz", "int msgflg"]
+    },
+    "semget":
+    {
+        "ret": "int",
+        "args": ["key_t key", "int nsems", "int semflg"]
+    },
+    "semctl":
+    {
+        "ret": "int",
+        "args": ["int semid", "int semnum", "int cmd"]
+    },
+    "semtimedop":
+    {
+        "ret": "int",
+        "args": ["int semid", "struct sembuf *sops", "size_t nsops", "struct timespec *timeout"]
+    },
+    "semop":
+    {
+        "ret": "int",
+        "args": ["int semid", "struct sembuf *sops", "size_t nsops"]
+    },
+    "shmget":
+    {
+        "ret": "int",
+        "args": ["key_t key", "size_t size", "int shmflg"]
+    },
+    "shmctl":
+    {
+        "ret": "int",
+        "args": ["int shmid", "int cmd", "struct shmid_ds *buf"]
+    },
+    "shmat":
+    {
+        "ret": "void *",
+        "args": ["int shmid", "void *shmaddr", "int shmflg"]
+    },
+    "shmdt":
+    {
+        "ret": "int",
+        "args": ["void *shmaddr"]
+    },
+    "socket":
+    {
+        "ret": "int",
+        "args": ["int domain", "int type", "int protocol"]
+    },
+    "socketpair":
+    {
+        "ret": "int",
+        "args": ["int domain", "int type", "int protocol", "int sv[2]"]
+    },
+    "bind":
+    {
+        "ret": "int",
+        "args": ["int sockfd", "struct sockaddr *addr", "socklen_t addrlen"]
+    },
+    "listen":
+    {
+        "ret": "int",
+        "args": ["int sockfd", "int backlog"]
+    },
+    "accept":
+    {
+        "ret": "int",
+        "args": ["int sockfd", "struct sockaddr *addr", "socklen_t *addrlen"]
+    },
+    "connect":
+    {
+        "ret": "int",
+        "args": ["int sockfd", "struct sockaddr *addr", "socklen_t addrlen"]
+    },
+    "getsockname":
+    {
+        "ret": "int",
+        "args": ["int sockfd", "struct sockaddr *addr", "socklen_t *addrlen"]
+    },
+    "getpeername":
+    {
+        "ret": "int",
+        "args": ["int sockfd", "struct sockaddr *addr", "socklen_t *addrlen"]
+    },
+    "sendto":
+    {
+        "ret": "ssize_t",
+        "args": ["int sockfd", "void *buf", "size_t len", "int flags", "struct sockaddr *dest_addr", "socklen_t addrlen"]
+    },
+    "recvfrom":
+    {
+        "ret": "ssize_t",
+        "args": ["int sockfd", "void *buf", "size_t len", "int flags", "struct sockaddr *src_addr", "socklen_t *addrlen"]
+    },
+    "setsockopt":
+    {
+        "ret": "int",
+        "args": ["int sockfd", "int level", "int optname", "void *optval", "socklen_t optlen"]
+    },
+    "getsockopt":
+    {
+        "ret": "int",
+        "args": ["int sockfd", "int level", "int optname", "void *optval", "socklen_t *optlen"]
+    },
+    "shutdown":
+    {
+        "ret": "int",
+        "args": ["int sockfd", "int how"]
+    },
+    "sendmsg":
+    {
+        "ret": "ssize_t",
+        "args": ["int sockfd", "struct msghdr *msg", "int flags"]
+    },
+    "recvmsg":
+    {
+        "ret": "ssize_t",
+        "args": ["int sockfd", "struct msghdr *msg", "int flags"]
+    },
+    "readahead":
+    {
+        "ret": "ssize_t",
+        "args": ["int fd", "off64_t offset", "size_t count"]
+    },
+    "brk":
+    {
+        "ret": "int",
+        "args": ["void *addr"]
+    },
+    "munmap":
+    {
+        "ret": "int",
+        "args": ["void *addr", "size_t length"]
+    },
+    "mremap":
+    {
+        "ret": "void *",
+        "args": ["void *old_address", "size_t old_size", "size_t new_size", "int flags"]
+    },
+    "add_key":
+    {
+        "ret": "key_serial_t",
+        "args": ["char *type", "char *description", "void *payload", "size_t plen", "key_serial_t keyring"]
+    },
+    "request_key":
+    {
+        "ret": "key_serial_t",
+        "args": ["char *type", "char *description", "char *callout_info", "key_serial_t dest_keyring"]
+    },
+    "keyctl":
+    {
+        "ret": "long",
+        "args": ["int operation"]
+    },
+    "clone":
+    {
+        "ret": "int",
+        "args": ["int (*fn)(void *)", "void *child_stack", "int flags", "void *arg"]
+    },
+    "execve":
+    {
+        "ret": "int",
+        "args": ["char *filename", "char **argv", "char **envp"]
+    },
+    "mmap":
+    {
+        "ret": "void *",
+        "args": ["void *addr", "size_t length", "int prot", "int flags", "int fd", "off_t offset"]
+    },
+    "fadvise64":
+    {
+        "ret": "int",
+        "args": ["int fd", "loff_t offset", "size_t len", "int advice"]
+    },
+    "swapon":
+    {
+        "ret": "int",
+        "args": ["char *path", "int swapflags"]
+    },
+    "swapoff":
+    {
+        "ret": "int",
+        "args": ["char *path"]
+    },
+    "mprotect":
+    {
+        "ret": "int",
+        "args": ["void *addr", "size_t len", "int prot"]
+    },
+    "msync":
+    {
+        "ret": "int",
+        "args": ["void *addr", "size_t length", "int flags"]
+    },
+    "mlock":
+    {
+        "ret": "int",
+        "args": ["void *addr", "size_t len"]
+    },
+    "munlock":
+    {
+        "ret": "int",
+        "args": ["void *addr", "size_t len"]
+    },
+    "mlockall":
+    {
+        "ret": "int",
+        "args": ["int flags"]
+    },
+    "munlockall":
+    {
+        "ret": "int",
+        "args": []
+    },
+    "mincore":
+    {
+        "ret": "int",
+        "args": ["void *addr", "size_t length", "unsigned char *vec"]
+    },
+    "madvise":
+    {
+        "ret": "int",
+        "args": ["void *addr", "size_t length", "int advice"]
+    },
+    "remap_file_pages":
+    {
+        "ret": "int",
+        "args": ["void *addr", "size_t size", "int prot", "size_t pgoff", "int flags"]
+    },
+    "mbind":
+    {
+        "ret": "long",
+        "args": ["void *addr", "unsigned long len", "int mode", "unsigned long *nodemask", "unsigned long maxnode", "unsigned flags"]
+    },
+    "get_mempolicy":
+    {
+        "ret": "long",
+        "args": ["int *mode", "unsigned long *nodemask", "unsigned long maxnode", "void *addr", "unsigned long flags"]
+    },
+    "set_mempolicy":
+    {
+        "ret": "long",
+        "args": ["int mode", "unsigned long *nodemask", "unsigned long maxnode"]
+    },
+    "migrate_pages":
+    {
+        "ret": "long",
+        "args": ["int pid", "unsigned long maxnode", "unsigned long *old_nodes", "unsigned long *new_nodes"]
+    },
+    "move_pages":
+    {
+        "ret": "long",
+        "args": ["int pid", "unsigned long count", "void **pages", "int *nodes", "int *status", "int flags"]
+    },
+    "rt_tgsigqueueinfo":
+    {
+        "ret": "int",
+        "args": ["pid_t tgid", "pid_t tid", "int sig", "siginfo_t *uinfo"]
+    },
+    "perf_event_open":
+    {
+        "ret": "int",
+        "args": ["struct perf_event_attr *attr", "pid_t pid", "int cpu", "int group_fd", "unsigned long flags"]
+    },
+    "accept4":
+    {
+        "ret": "int",
+        "args": ["int sockfd", "struct sockaddr *addr", "socklen_t *addrlen", "int flags"]
+    },
+    "recvmmsg":
+    {
+        "ret": "int",
+        "args": ["int sockfd", "struct mmsghdr *msgvec", "unsigned int vlen", "int flags", "struct timespec *timeout"]
+    },
+    "wait4":
+    {
+        "ret": "pid_t",
+        "args": ["pid_t pid", "int *wstatus", "int options", "struct rusage *rusage"]
+    },
+    "prlimit64":
+    {
+        "ret": "int",
+        "args": ["pid_t pid", "unsigned int resource", "struct rlimit64 *new_rlim", "struct rlimit64 *old_rlim"]
+    },
+    "fanotify_init":
+    {
+        "ret": "int",
+        "args": ["unsigned int flags", "unsigned int event_f_flags"]
+    },
+    "fanotify_mark":
+    {
+        "ret": "int",
+        "args": ["int fanotify_fd", "unsigned int flags", "uint64_t mask", "int dirfd", "char *pathname"]
+    },
+    "name_to_handle_at":
+    {
+        "ret": "int",
+        "args": ["int dirfd", "char *pathname", "struct file_handle *handle", "int *mount_id", "int flags"]
+    },
+    "open_by_handle_at":
+    {
+        "ret": "int",
+        "args": ["int mount_fd", "struct file_handle *handle", "int flags"]
+    },
+    "clock_adjtime":
+    {
+        "ret": "int",
+        "args": ["clockid_t which_clock", "struct timeval *utx"]
+    },
+    "syncfs":
+    {
+        "ret": "int",
+        "args": ["int fd"]
+    },
+    "setns":
+    {
+        "ret": "int",
+        "args": ["int fd", "int nstype"]
+    },
+    "sendmmsg":
+    {
+        "ret": "int",
+        "args": ["int sockfd", "struct mmsghdr *msgvec", "unsigned int vlen", "int flags"]
+    },
+    "process_vm_readv":
+    {
+        "ret": "ssize_t",
+        "args": ["pid_t pid", "struct iovec *local_iov", "unsigned long liovcnt", "struct iovec *remote_iov", "unsigned long riovcnt", "unsigned long flags"]
+    },
+    "process_vm_writev":
+    {
+        "ret": "ssize_t",
+        "args": ["pid_t pid", "struct iovec *local_iov", "unsigned long liovcnt", "struct iovec *remote_iov", "unsigned long riovcnt", "unsigned long flags"]
+    },
+    "kcmp":
+    {
+        "ret": "int",
+        "args": ["pid_t pid1", "pid_t pid2", "int type", "unsigned long idx1", "unsigned long idx2"]
+    },
+    "finit_module":
+    {
+        "ret": "int",
+        "args": ["int fd", "char *param_values", "int flags"]
+    },
+    "sched_setattr":
+    {
+        "ret": "int",
+        "args": ["pid_t pid", "struct sched_attr *attr", "unsigned int flags"]
+    },
+    "sched_getattr":
+    {
+        "ret": "int",
+        "args": ["pid_t pid", "struct sched_attr *attr", "unsigned int size", "unsigned int flags"]
+    },
+    "renameat2":
+    {
+        "ret": "int",
+        "args": ["int olddirfd", "char *oldpath", "int newdirfd", "char *newpath", "unsigned int flags"]
+    },
+    "seccomp":
+    {
+        "ret": "int",
+        "args": ["unsigned int operation", "unsigned int flags", "void *args"]
+    },
+    "getrandom":
+    {
+        "ret": "ssize_t",
+        "args": ["void *buf", "size_t buflen", "unsigned int flags"]
+    },
+    "memfd_create":
+    {
+        "ret": "int",
+        "args": ["char *name", "unsigned int flags"]
+    },
+    "bpf":
+    {
+        "ret": "int",
+        "args": ["int cmd", "union bpf_attr *attr", "unsigned int size"]
+    },
+    "execveat":
+    {
+        "ret": "int",
+        "args": ["int dirfd", "char *pathname", "char **argv", "char **envp", "int flags"]
+    },
+    "userfaultfd":
+    {
+        "ret": "int",
+        "args": ["int flags"]
+    },
+    "membarrier":
+    {
+        "ret": "int",
+        "args": ["int cmd", "int flags"]
+    },
+    "mlock2":
+    {
+        "ret": "int",
+        "args": ["void *addr", "size_t len", "int flags"]
+    },
+    "copy_file_range":
+    {
+        "ret": "ssize_t",
+        "args": ["int fd_in", "loff_t *off_in", "int fd_out", "loff_t *off_out", "size_t len", "unsigned int flags"]
+    },
+    "preadv2":
+    {
+        "ret": "ssize_t",
+        "args": ["int fd", "struct iovec *iov", "int iovcnt", "off_t offset", "int flags"]
+    },
+    "pwritev2":
+    {
+        "ret": "ssize_t",
+        "args": ["int fd", "struct iovec *iov", "int iovcnt", "off_t offset", "int flags"]
+    },
+    "pkey_mprotect":
+    {
+        "ret": "int",
+        "args": ["void *addr", "size_t len", "int prot", "int pkey"]
+    },
+    "pkey_alloc":
+    {
+        "ret": "int",
+        "args": ["unsigned long flags", "unsigned long access_rights"]
+    },
+    "pkey_free":
+    {
+        "ret": "int",
+        "args": ["int pkey"]
+    },
+    "statx":
+    {
+        "ret": "int",
+        "args": ["int dirfd", "char *pathname", "int flags", "unsigned int mask", "struct statx *statxbuf"]
+    },
+    "io_pgetevents":
+    {
+        "ret": "int",
+        "args": ["aio_context_t ctx_id", "long min_nr", "long nr", "struct io_event *events", "struct timespec *timeout", "struct __aio_sigset *usig"]
+    },
+    "rseq":
+    {
+        "ret": "int",
+        "args": ["struct rseq *rseq", "uint32_t rseq_len", "int flags", "uint32_t sig"]
+    },
+    "kexec_file_load":
+    {
+        "ret": "long",
+        "args": ["int kernel_fd", "int initrd_fd", "unsigned long cmdline_len", "char *cmdline", "unsigned long flags"]
+    },
+    "pidfd_send_signal":
+    {
+        "ret": "int",
+        "args": ["int pidfd", "int sig", "siginfo_t *info", "unsigned int flags"]
+    },
+    "io_uring_setup":
+    {
+        "ret": "int",
+        "args": ["uint32_t entries", "struct io_uring_params *params"]
+    },
+    "io_uring_enter":
+    {
+        "ret": "int",
+        "args": ["unsigned int fd", "uint32_t to_submit", "uint32_t min_complete", "uint32_t flags", "sigset_t *sig", "size_t sigsz"]
+    },
+    "io_uring_register":
+    {
+        "ret": "int",
+        "args": ["unsigned int fd", "unsigned int opcode", "void *arg", "unsigned int nr_args"]
+    },
+    "open_tree":
+    {
+        "ret": "int",
+        "args": ["int dfd", "char *filename", "unsigned int flags"]
+    },
+    "move_mount":
+    {
+        "ret": "int",
+        "args": ["int from_dfd", "char *from_pathname", "int to_dfd", "char *to_pathname", "unsigned int flags"]
+    },
+    "fsopen":
+    {
+        "ret": "int",
+        "args": ["char *_fs_name", "unsigned int flags"]
+    },
+    "fsconfig":
+    {
+        "ret": "int",
+        "args": ["int fd", "unsigned int cmd", "char *_key", "void *_value", "int aux"]
+    },
+    "fsmount":
+    {
+        "ret": "long",
+        "args": ["int fs_fd", "unsigned int flags", "unsigned int attr_flags"]
+    },
+    "fspick":
+    {
+        "ret": "int",
+        "args": ["int dfd", "char *path", "unsigned int flags"]
+    },
+    "pidfd_open":
+    {
+        "ret": "int",
+        "args": ["pid_t pid", "unsigned int flags"]
+    },
+    "clone3":
+    {
+        "ret": "int",
+        "args": ["struct clone_args *uargs", "size_t size"]
+    },
+    "open":
+    {
+        "ret": "int",
+        "args": ["char *pathname", "int flags", "mode_t mode"]
+    },
+    "stat":
+    {
+        "ret": "int",
+        "args": ["char *pathname", "struct stat *statbuf"]
+    },
+    "lstat":
+    {
+        "ret": "int",
+        "args": ["char *pathname", "struct stat *statbuf"]
+    },
+    "poll":
+    {
+        "ret": "int",
+        "args": ["struct pollfd *fds", "nfds_t nfds", "int timeout"]
+    },
+    "access":
+    {
+        "ret": "int",
+        "args": ["char *pathname", "int mode"]
+    },
+    "pipe":
+    {
+        "ret": "int",
+        "args": ["int pipefd[2]"]
+    },
+    "select":
+    {
+        "ret": "int",
+        "args": ["int nfds", "fd_set *readfds", "fd_set *writefds", "fd_set *exceptfds", "struct timeval *timeout"]
+    },
+    "dup2":
+    {
+        "ret": "int",
+        "args": ["int oldfd", "int newfd"]
+    },
+    "pause":
+    {
+        "ret": "int",
+        "args": []
+    },
+    "alarm":
+    {
+        "ret": "unsigned int",
+        "args": ["unsigned int seconds"]
+    },
+    "fork":
+    {
+        "ret": "pid_t",
+        "args": []
+    },
+    "vfork":
+    {
+        "ret": "pid_t",
+        "args": []
+    },
+    "getdents":
+    {
+        "ret": "int",
+        "args": ["unsigned int fd", "struct linux_dirent *dirp", "unsigned int count"]
+    },
+    "rename":
+    {
+        "ret": "int",
+        "args": ["char *oldpath", "char *newpath"]
+    },
+    "mkdir":
+    {
+        "ret": "int",
+        "args": ["char *pathname", "mode_t mode"]
+    },
+    "rmdir":
+    {
+        "ret": "int",
+        "args": ["char *pathname"]
+    },
+    "creat":
+    {
+        "ret": "int",
+        "args": ["char *pathname", "mode_t mode"]
+    },
+    "link":
+    {
+        "ret": "int",
+        "args": ["char *oldpath", "char *newpath"]
+    },
+    "unlink":
+    {
+        "ret": "int",
+        "args": ["char *pathname"]
+    },
+    "symlink":
+    {
+        "ret": "int",
+        "args": ["char *target", "char *linkpath"]
+    },
+    "readlink":
+    {
+        "ret": "ssize_t",
+        "args": ["char *pathname", "char *buf", "size_t bufsiz"]
+    },
+    "chmod":
+    {
+        "ret": "int",
+        "args": ["char *pathname", "mode_t mode"]
+    },
+    "chown":
+    {
+        "ret": "int",
+        "args": ["char *pathname", "uid_t owner", "gid_t group"]
+    },
+    "lchown":
+    {
+        "ret": "int",
+        "args": ["char *pathname", "uid_t owner", "gid_t group"]
+    },
+    "getpgrp":
+    {
+        "ret": "pid_t",
+        "args": []
+    },
+    "utime":
+    {
+        "ret": "int",
+        "args": ["char *filename", "struct utimbuf *times"]
+    },
+    "mknod":
+    {
+        "ret": "int",
+        "args": ["char *pathname", "mode_t mode", "dev_t dev"]
+    },
+    "uselib":
+    {
+        "ret": "int",
+        "args": ["char *library"]
+    },
+    "ustat":
+    {
+        "ret": "int",
+        "args": ["dev_t dev", "struct ustat *ubuf"]
+    },
+    "sysfs":
+    {
+        "ret": "int",
+        "args": ["int option"]
+    },
+    "modify_ldt":
+    {
+        "ret": "int",
+        "args": ["int func", "void *ptr", "unsigned long bytecount"]
+    },
+    "_sysctl":
+    {
+        "ret": "int",
+        "args": ["struct __sysctl_args *args"]
+    },
+    "arch_prctl":
+    {
+        "ret": "int",
+        "args": ["int code", "unsigned long *addr"]
+    },
+    "iopl":
+    {
+        "ret": "int",
+        "args": ["int level"]
+    },
+    "ioperm":
+    {
+        "ret": "int",
+        "args": ["unsigned long from", "unsigned long num", "int turn_on"]
+    },
+    "create_module":
+    {
+        "ret": "caddr_t",
+        "args": ["char *name", "size_t size"]
+    },
+    "get_kernel_syms":
+    {
+        "ret": "int",
+        "args": ["struct kernel_sym *table"]
+    },
+    "query_module":
+    {
+        "ret": "int",
+        "args": ["char *name", "int which", "void *buf", "size_t bufsize", "size_t *ret"]
+    },
+    "time":
+    {
+        "ret": "time_t",
+        "args": ["time_t *tloc"]
+    },
+    "set_thread_area":
+    {
+        "ret": "int",
+        "args": ["struct user_desc *u_info"]
+    },
+    "get_thread_area":
+    {
+        "ret": "int",
+        "args": ["struct user_desc *u_info"]
+    },
+    "epoll_create":
+    {
+        "ret": "int",
+        "args": ["int size"]
+    },
+    "epoll_ctl_old":
+    {
+        "ret": "int",
+        "args": ["int epfd", "int op", "int fd", "struct epoll_event *event"]
+    },
+    "epoll_wait_old":
+    {
+        "ret": "int",
+        "args": ["int epfd", "struct epoll_event *events", "int maxevents", "int timeout"]
+    },
+    "epoll_wait":
+    {
+        "ret": "int",
+        "args": ["int epfd", "struct epoll_event *events", "int maxevents", "int timeout"]
+    },
+    "utimes":
+    {
+        "ret": "int",
+        "args": ["char *filename", "struct timeval times[2]"]
+    },
+    "inotify_init":
+    {
+        "ret": "int",
+        "args": []
+    },
+    "futimesat":
+    {
+        "ret": "int",
+        "args": ["int dirfd", "char *pathname", "struct timeval times[2]"]
+    },
+    "signalfd":
+    {
+        "ret": "int",
+        "args": ["int fd", "sigset_t *mask", "int flags"]
+    },
+    "eventfd":
+    {
+        "ret": "int",
+        "args": ["unsigned int initval", "int flags"]
+    },
+    "waitpid":
+    {
+        "ret": "pid_t",
+        "args": ["pid_t pid", "int *wstatus", "int options"]
+    },
+    "oldstat":
+    {
+        "ret": "int",
+        "args": ["char *filename", "struct stat *statbuf"]
+    },
+    "umount":
+    {
+        "ret": "int",
+        "args": ["char *target"]
+    },
+    "stime":
+    {
+        "ret": "int",
+        "args": ["time_t *t"]
+    },
+    "oldfstat":
+    {
+        "ret": "int",
+        "args": ["unsigned int fd", "struct stat *statbuf"]
+    },
+    "nice":
+    {
+        "ret": "int",
+        "args": ["int inc"]
+    },
+    "signal":
+    {
+        "ret": "sighandler_t",
+        "args": ["int signum", "sighandler_t handler"]
+    },
+    "oldolduname":
+    {
+        "ret": "int",
+        "args": ["struct oldold_utsname *name"]
+    },
+    "sigaction":
+    {
+        "ret": "int",
+        "args": ["int signum", "struct sigaction *act", "struct sigaction *oldact"]
+    },
+    "sgetmask":
+    {
+        "ret": "long",
+        "args": []
+    },
+    "ssetmask":
+    {
+        "ret": "long",
+        "args": ["long newmask"]
+    },
+    "sigsuspend":
+    {
+        "ret": "int",
+        "args": ["sigset_t *mask"]
+    },
+    "sigpending":
+    {
+        "ret": "int",
+        "args": ["sigset_t *set"]
+    },
+    "oldlstat":
+    {
+        "ret": "int",
+        "args": ["char *filename", "struct stat *statbuf"]
+    },
+    "readdir":
+    {
+        "ret": "int",
+        "args": ["unsigned int fd", "struct old_linux_dirent *dirp", "unsigned int count"]
+    },
+    "socketcall":
+    {
+        "ret": "int",
+        "args": ["int call", "unsigned long *args"]
+    },
+    "olduname":
+    {
+        "ret": "int",
+        "args": ["struct oldold_utsname *name"]
+    },
+    "idle":
+    {
+        "ret": "int",
+        "args": []
+    },
+    "syscall":
+    {
+        "ret": "long",
+        "args": ["long number"]
+    },
+    "ipc":
+    {
+        "ret": "int",
+        "args": ["unsigned int call", "int first", "int second", "int third", "void *ptr", "long fifth"]
+    },
+    "sigreturn":
+    {
+        "ret": "int",
+        "args": []
+    },
+    "sigprocmask":
+    {
+        "ret": "int",
+        "args": ["int how", "old_sigset_t *set", "old_sigset_t *oldset"]
+    },
+    "bdflush":
+    {
+        "ret": "int",
+        "args": ["int func", "long data"]
+    },
+    "_llseek":
+    {
+        "ret": "int",
+        "args": ["unsigned int fd", "unsigned long offset_high", "unsigned long offset_low", "loff_t *result", "unsigned int whence"]
+    },
+    "_newselect":
+    {
+        "ret": "int",
+        "args": ["int n", "fd_set *inp", "fd_set *outp", "fd_set *exp", "struct timeval *tvp"]
+    },
+    "vm86":
+    {
+        "ret": "int",
+        "args": ["unsigned long fn", "struct vm86plus_struct *v86"]
+    },
+    "ugetrlimit":
+    {
+        "ret": "int",
+        "args": ["unsigned int resource", "struct rlimit *rlim"]
+    },
+    "mmap2":
+    {
+        "ret": "void *",
+        "args": ["void *addr", "size_t length", "int prot", "int flags", "int fd", "off_t pgoffset"]
+    },
+    "truncate64":
+    {
+        "ret": "long",
+        "args": ["char *path", "loff_t length"]
+    },
+    "ftruncate64":
+    {
+        "ret": "long",
+        "args": ["unsigned int fd", "loff_t length"]
+    },
+    "stat64":
+    {
+        "ret": "long",
+        "args": ["char *filename", "struct stat64 *statbuf"]
+    },
+    "lstat64":
+    {
+        "ret": "int",
+        "args": ["char *filename", "struct stat64 *statbuf"]
+    },
+    "fstat64":
+    {
+        "ret": "int",
+        "args": ["unsigned long fd", "struct stat64 *statbuf"]
+    },
+    "lchown32":
+    {
+        "ret": "int",
+        "args": ["char *filename", "uid_t user", "gid_t group"]
+    },
+    "getuid32":
+    {
+        "ret": "uid_t",
+        "args": []
+    },
+    "getgid32":
+    {
+        "ret": "gid_t",
+        "args": []
+    },
+    "geteuid32":
+    {
+        "ret": "uid_t",
+        "args": []
+    },
+    "getegid32":
+    {
+        "ret": "gid_t",
+        "args": []
+    },
+    "setreuid32":
+    {
+        "ret": "int",
+        "args": ["uid_t ruid", "uid_t euid"]
+    },
+    "setregid32":
+    {
+        "ret": "int",
+        "args": ["gid_t rgid", "gid_t egid"]
+    },
+    "getgroups32":
+    {
+        "ret": "int",
+        "args": ["int size", "gid_t *list"]
+    },
+    "setgroups32":
+    {
+        "ret": "int",
+        "args": ["size_t size", "gid_t *list"]
+    },
+    "fchown32":
+    {
+        "ret": "int",
+        "args": ["int fd", "uid_t owner", "gid_t group"]
+    },
+    "setresuid32":
+    {
+        "ret": "int",
+        "args": ["uid_t ruid", "uid_t euid", "uid_t suid"]
+    },
+    "getresuid32":
+    {
+        "ret": "int",
+        "args": ["uid_t *ruid", "uid_t *euid", "uid_t *suid"]
+    },
+    "setresgid32":
+    {
+        "ret": "int",
+        "args": ["gid_t rgid", "gid_t egid", "gid_t sgid"]
+    },
+    "getresgid32":
+    {
+        "ret": "int",
+        "args": ["gid_t *rgid", "gid_t *egid", "gid_t *sgid"]
+    },
+    "chown32":
+    {
+        "ret": "int",
+        "args": ["char *pathname", "uid_t owner", "gid_t group"]
+    },
+    "setuid32":
+    {
+        "ret": "int",
+        "args": ["uid_t uid"]
+    },
+    "setgid32":
+    {
+        "ret": "int",
+        "args": ["gid_t gid"]
+    },
+    "setfsuid32":
+    {
+        "ret": "int",
+        "args": ["uid_t fsuid"]
+    },
+    "setfsgid32":
+    {
+        "ret": "int",
+        "args": ["uid_t fsgid"]
+    },
+    "fcntl64":
+    {
+        "ret": "long",
+        "args": ["unsigned int fd", "unsigned int cmd", "unsigned long arg"]
+    },
+    "sendfile64":
+    {
+        "ret": "ssize_t",
+        "args": ["int out_fd", "int in_fd", "loff_t *offset", "size_t count"]
+    },
+    "statfs64":
+    {
+        "ret": "int",
+        "args": ["char *pathname", "size_t sz", "struct statfs64 *buf"]
+    },
+    "fstatfs64":
+    {
+        "ret": "int",
+        "args": ["unsigned int fd", "size_t sz", "struct statfs64 *buf"]
+    },
+    "fadvise64_64":
+    {
+        "ret": "int",
+        "args": ["int fd", "loff_t offset", "loff_t len", "int advice"]
+    },
+    "pciconfig_iobase":
+    {
+        "ret": "int",
+        "args": ["long which", "unsigned long bus", "unsigned long devfn"]
+    },
+    "pciconfig_read":
+    {
+        "ret": "int",
+        "args": ["unsigned long bus", "unsigned long dfn", "unsigned long off", "unsigned long len", "void *buf"]
+    },
+    "pciconfig_write":
+    {
+        "ret": "int",
+        "args": ["unsigned long bus", "unsigned long dfn", "unsigned long off", "unsigned long len", "void *buf"]
+    },
+    "send":
+    {
+        "ret": "ssize_t",
+        "args": ["int sockfd", "void *buf", "size_t len", "int flags"]
+    },
+    "recv":
+    {
+        "ret": "ssize_t",
+        "args": ["int sockfd", "void *buf", "size_t len", "int flags"]
+    },
+    "fstatat64":
+    {
+        "ret": "int",
+        "args": ["int dfd", "char *filename", "struct stat64 *statbuf", "int flag"]
+    },
+    "sync_file_range2":
+    {
+        "ret": "int",
+        "args": ["int fd", "unsigned int flags", "loff_t offset", "loff_t nbytes"]
+    },
+    "clock_gettime64":
+    {
+        "ret": "int",
+        "args": ["clockid_t which_clock", "struct timespec *tp"]
+    },
+    "clock_settime64":
+    {
+        "ret": "int",
+        "args": ["clockid_t which_clock", "struct timespec *tp"]
+    },
+    "clock_adjtime64":
+    {
+        "ret": "int",
+        "args": ["clockid_t", "which_clock", "struct timeval *utx"]
+    },
+    "clock_getres_time64":
+    {
+        "ret": "int",
+        "args": ["clockid_t which_clock", "struct timeval *tp"]
+    },
+    "clock_nanosleep_time64":
+    {
+        "ret": "long",
+        "args": ["clockid_t which_clock", "int flags", "struct timespec *rqtp", "struct timespec *rmtp"]
+    },
+    "timer_gettime64":
+    {
+        "ret": "int",
+        "args": ["timer_t timer_id", "struct itimerspec *setting"]
+    },
+    "timer_settime64":
+    {
+        "ret": "int",
+        "args": ["timer_t timer_id", "int flags", "struct itimerspec *new_setting", "struct itimerspec *old_setting"]
+    },
+    "timerfd_gettime64":
+    {
+        "ret": "int",
+        "args": ["int ufd", "struct itimerspec *otmr"]
+    },
+    "timerfd_settime64":
+    {
+        "ret": "int",
+        "args": ["int ufd", "int flags", "struct itimerspec *utmr", "struct itimerspec *otmr"]
+    },
+    "utimensat_time64":
+    {
+        "ret": "int",
+        "args": ["int dirfd", "char *pathname", "struct timespec times[2]", "int flags"]
+    },
+    "pselect6_time64":
+    {
+        "ret": "long",
+        "args": ["int n", "fd_set *inp", "fd_set *outp", "fd_set *exp", "struct timespec *tsp", "void *sig"]
+    },
+    "ppoll_time64":
+    {
+        "ret": "int",
+        "args": ["struct pollfd *fds", "nfds_t nfds", "struct timespec *tmo_p", "sigset_t *sigmask"]
+    },
+    "io_pgetevents_time64":
+    {
+        "ret": "int",
+        "args": ["aio_context_t ctx_id", "long min_nr", "long nr", "struct io_event *events", "struct timespec *timeout", "struct __aio_sigset *usig"]
+    },
+    "recvmmsg_time64":
+    {
+        "ret": "int",
+        "args": ["int sockfd", "struct mmsghdr *msgvec", "unsigned int vlen", "int flags", "struct timespec *timeout"]
+    },
+    "mq_timedsend_time64":
+    {
+        "ret": "int",
+        "args": ["mqd_t mqdes", "char *msg_ptr", "size_t msg_len", "unsigned int msg_prio", "struct timespec *abs_timeout"]
+    },
+    "mq_timedreceive_time64":
+    {
+        "ret": "ssize_t",
+        "args": ["mqd_t mqdes", "char *msg_ptr", "size_t msg_len", "unsigned int *msg_prio", "struct timespec *abs_timeout"]
+    },
+    "semtimedop_time64":
+    {
+        "ret": "int",
+        "args": ["int semid", "struct sembuf *sops", "size_t nsops", "struct timespec *timeout"]
+    },
+    "rt_sigtimedwait_time64":
+    {
+        "ret": "int",
+        "args": ["sigset_t *set", "siginfo_t *info", "struct timespec *timeout"]
+    },
+    "futex_time64":
+    {
+        "ret": "long",
+        "args": ["u32 *uaddr", "int op", "u32 val", "struct timespec *utime", "u32 *uaddr2", "u32", "val3"]
+    },
+    "sched_rr_get_interval_time64":
+    {
+        "ret": "int",
+        "args": ["pid_t pid", "struct timespec *tp"]
+    },
+    "alloc_hugepages":
+    {
+        "ret": "void *",
+        "args": ["int key", "void *addr", "size_t len", "int prot", "int flag"]
+    },
+    "free_hugepages":
+    {
+        "ret": "int",
+        "args": ["void *addr"]
+    },
+    "vm86old":
+    {
+        "ret": "int",
+        "args": ["struct vm86_struct *info"]
+    },
+    "cacheflush":
+    {
+        "ret": "int",
+        "args": ["char *addr", "int nbytes", "int cache"]
+    },
+    "getpagesize":
+    {
+        "ret": "int",
+        "args": []
+    },
+    "atomic_cmpxchg_32":
+    {
+        "ret": "int",
+        "args": ["unsigned long newval", "int oldval", "int d3", "int d4", "int d5", "unsigned long *mem"]
+    },
+    "atomic_barrier":
+    {
+        "ret": "int",
+        "args": []
+    },
+    "setup":
+    {
+        "ret": "int",
+        "args": []
+    },
+    "swapcontext":
+    {
+        "ret": "int",
+        "args": ["struct ucontext *old_ctx", "struct ucontext *new_ctx", "long ctx_size"]
+    },
+    "rtas":
+    {
+        "ret": "int",
+        "args": ["struct rtas_args *uargs"]
+    },
+    "sys_debug_setcontext":
+    {
+        "ret": "int",
+        "args": ["struct ucontext *ctx", "int ndbg", "struct sig_dbg_op *dbg", "int r6", "int r7", "int r8", "struct pt_regs *regs"]
+    },
+    "spu_run":
+    {
+        "ret": "int",
+        "args": ["int fd", "unsigned int *npc", "unsigned int *event"]
+    },
+    "spu_create":
+    {
+        "ret": "int",
+        "args": ["char *pathname", "int flags", "mode_t mode", "int neighbor_fd"]
+    },
+    "subpage_prot":
+    {
+        "ret": "long",
+        "args": ["unsigned long addr", "unsigned long len", "uint32_t *map"]
+    },
+    "switch_endian":
+    {
+        "ret": "void",
+        "args": []
+    },
+    "execv":
+    {
+        "ret": "int",
+        "args": ["char *path", "char **argv"]
+    },
+    "memory_ordering":
+    {
+        "ret": "int",
+        "args": ["unsigned long model"]
+    },
+    "sched_set_affinity":
+    {
+        "ret": "int",
+        "args": ["pid_t pid", "size_t cpusetsize", "cpu_set_t *mask"]
+    },
+    "sched_get_affinity":
+    {
+        "ret": "int",
+        "args": ["pid_t pid", "size_t cpusetsize", "cpu_set_t *mask"]
+    },
+    "getdomainname":
+    {
+        "ret": "int",
+        "args": ["char *name", "size_t len"]
+    },
+    "utrap_install":
+    {
+        "ret": "int",
+        "args": ["utrap_entry_t type", "utrap_handler_t new_p", "utrap_handler_t new_d", "utrap_handler_t *old_p", "utrap_handler_t *old_d"]
+    },
+    "kern_features":
+    {
+        "ret": "int",
+        "args": []
+    }
+}

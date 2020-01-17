@@ -1,11 +1,11 @@
-# Replace Linux/Sparc numeric constants with human readable names.
+# Annotate Linux/MIPS (o32) system calls and arguments.
 #@author b0bb
 #@category Pwn
 #@keybinding
-#@menupath Analysis.Pwn.Constants.sparc
+#@menupath Analysis.Pwn.Syscalls.mips.o32
 #@toolbar 
 
-from lib.Constants import Constants
+from lib.Syscalls import Syscalls
 import ghidra.app.util.opinion.ElfLoader as ElfLoader
 
 def run():
@@ -14,10 +14,10 @@ def run():
         popup('Not an ELF file, cannot continue')
         return
 
-    arch = 'sparc'
-    abi  = 'default'
+    arch = 'mips'
+    abi  = 'o32'
 
-    Constants(currentProgram, currentSelection, monitor, state, arch, abi)
+    obj = Syscalls(currentProgram, currentSelection, monitor, arch, abi)
 
 
 run()
