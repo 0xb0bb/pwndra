@@ -15,9 +15,30 @@ human readable counterpart.
 
 This utility will attempt to find and identify system calls (and arguments).
 
+Annotation in the decompiler view
 ![pwndra syscalls](https://github.com/0xb0bb/pwndra/blob/master/docs/images/pwndra_syscalls.png?raw=true)
 
+Arguments are annotated in the disassembler view
 ![pwndra syscalls](https://github.com/0xb0bb/pwndra/blob/master/docs/images/pwndra_syscalls_disas.png?raw=true)
+
+---
+
+## Installation
+
+Clone the repository or download and extract somewhere. In Ghidra, open
+the `Script Manager` (`Window` -> `Script Manager`) click the `Script 
+Directory` buttom and add `pwndra/scripts` to the list.
+
+Once the script directory is added to Ghidra you can find the scripts in
+the `Pwn` category. You can run the scripts directly from the `Script 
+Manager` if you like but the scripts also have menus and keyboard shortcuts
+for ease of use. In order to activate the menus and shortcuts you must
+click the `In Tool` checkbox next to the scripts you wish to integrate
+into the tool.
+
+If you clicked `In Tool` the menus will be under `Analysis` -> `Pwn` and
+any shortcuts for scripts are listed in the menu item that uses that
+shortcut.
 
 ## Usage
 
@@ -50,14 +71,3 @@ The scripts have two modes of operation, the default is to operate globally,
 the second is to only operate on a given selection. This is useful for those
 times where you have two binary modes interlaced in the same code such as
 `i386`/`amd64` or `thumb`/`arm`.
-
-## Installation
-
-Add the files to an existing Ghidra script directory or add it as a new
-script directory by clicking the `Script Directories` button within the
-`Script Manager` window (`Window` -> `Script Manager`).
-
-Some of the scripts have keyboard shortcuts or add menu items to Ghidra
-(visible under `Analysis` -> `Pwn`) in order to integrate the scripts into
-Ghidra you must click the `In Tool` checkbox next to each script on the
-`Script Manager` window.
