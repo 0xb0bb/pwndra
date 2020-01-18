@@ -15,11 +15,23 @@ human readable counterpart.
 
 This utility will attempt to find and identify system calls (and arguments).
 
-Annotation in the decompiler view
+*Annotation in the decompiler view*
 ![pwndra syscalls](https://github.com/0xb0bb/pwndra/blob/master/docs/images/pwndra_syscalls.png?raw=true)
 
-Arguments are annotated in the disassembler view
+*Arguments are annotated in the disassembler view*
 ![pwndra syscalls](https://github.com/0xb0bb/pwndra/blob/master/docs/images/pwndra_syscalls_disas.png?raw=true)
+
+### Character Conversion
+
+The correct workflow to convert displayed data in an operand is to right click
+the value and select the conversion type under the `Convert` submenu, however,
+on request I have made a script to convert the display type of operands to
+`char` so it can be used with a keyboard shortcut for convenience (IDA style).
+
+To use it select the `In Tool` option of the `ConvertCharacter.py` script and
+then select a numeric operand and hit `shift+r` to convert to a string. You
+can change the shortcut by editing the line that contains the comment with
+`keybinding` in it at the top of the script.
 
 ---
 
