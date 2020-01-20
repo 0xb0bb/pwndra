@@ -4,6 +4,11 @@ A collection of pwn/CTF related utilities for Ghidra
 
 ## Utilities
 
+* [Replace Constants](#replace-constants)
+* [Annotate Syscalls](#annotate-syscalls)
+* [Character Conversion](#character-conversion)
+* [Goto Main](#goto-main)
+
 ### Replace Constants
 
 This utility will attempt to replace known constants in functions with their
