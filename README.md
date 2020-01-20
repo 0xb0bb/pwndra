@@ -33,7 +33,7 @@ the value and select the conversion type under the `Convert` submenu, however,
 on request I have made a script to convert the display type of operands to
 `char` so it can be used with a keyboard shortcut for convenience (IDA style).
 
-To use it select the `In Tool` option of the `ConvertCharacter.py` script and
+To use it select the `In Tool` option of the `UtilitiesConvertCharacter.py` script and
 then select a numeric operand and hit `shift+r` to convert to a string. You
 can change the shortcut by editing the line that contains the comment with
 `keybinding` in it at the top of the script.
