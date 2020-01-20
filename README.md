@@ -33,6 +33,18 @@ then select a numeric operand and hit `shift+r` to convert to a string. You
 can change the shortcut by editing the line that contains the comment with
 `keybinding` in it at the top of the script.
 
+### Goto Main
+
+One annoying difference between Ghidra and IDA is that Ghidra makes no
+attempt to jump to `main()` (or the entry point) when you load a binary.
+The `UtilitiesGotoMain.py` script aims to correct that. Run it directly
+or if integrated with `In Tool` then hit `ctrl`+`m` and it will attempt
+to dynamically find `main()` and move focus to that function.
+
+If there is no `main()` function detected, it will jump to the entry
+function. If you run on a stripped binary then it will rename the `main`
+function for you.
+
 ---
 
 ## Installation
