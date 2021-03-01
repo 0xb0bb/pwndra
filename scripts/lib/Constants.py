@@ -138,10 +138,11 @@ class Constants:
     def getParameterValue(self, func, call, n):
 
         param = func.getParameter(n)
-        if param.isRegisterVariable():
-            return self.getRegisterValue(func, call, param.getRegister())
-        elif param.isStackVariable():
-            return self.getStackValue(func, call, param)
+        if param:
+            if param.isRegisterVariable():
+                return self.getRegisterValue(func, call, param.getRegister())
+            elif param.isStackVariable():
+                return self.getStackValue(func, call, param)
 
         return None
 
