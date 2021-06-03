@@ -162,6 +162,10 @@
         [2, "prot"],
         [3, "map_type"]
     ],
+    "mmap64": [
+        [2, "prot"],
+        [3, "map_type"]
+    ],
     "mremap": [
         [3, "remap_type"]
     ],
