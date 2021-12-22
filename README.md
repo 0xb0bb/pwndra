@@ -56,7 +56,7 @@ function for you.
 
 Clone the repository or download and extract somewhere. In Ghidra, open
 the `Script Manager` (`Window` -> `Script Manager`) click the `Script 
-Directory` buttom and add `pwndra/scripts` to the list.
+Directory` button and add `pwndra/scripts` to the list.
 
 Once the script directory is added to Ghidra you can find the scripts in
 the `Pwn` category. You can run the scripts directly from the `Script 
