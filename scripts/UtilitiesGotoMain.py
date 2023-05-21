@@ -8,7 +8,6 @@
 import ghidra.app.util.opinion.ElfLoader as ElfLoader
 import ghidra.app.util.bin.MemoryByteProvider as MemoryByteProvider
 import ghidra.app.util.bin.format.elf.ElfHeader as ElfHeader
-import generic.continues.RethrowContinuesFactory as RethrowContinuesFactory
 import ghidra.program.util.FunctionSignatureFieldLocation as FunctionSignatureFieldLocation
 import ghidra.app.plugin.core.navigation.locationreferences.ReferenceUtils as ReferenceUtils
 import ghidra.program.model.symbol.RefType as RefType
@@ -17,6 +16,12 @@ import ghidra.program.util.SymbolicPropogator.Value
 import ghidra.app.plugin.core.analysis.ConstantPropagationContextEvaluator as ConstantPropagationContextEvaluator
 import ghidra.app.emulator.EmulatorHelper as EmulatorHelper
 import ghidra.program.model.symbol.SourceType as SourceType
+import ghidra.program.model.data.FunctionDefinitionDataType as FunctionDefinitionDataType
+import ghidra.program.model.data.ParameterDefinitionImpl as ParameterDefinitionImpl
+import ghidra.program.model.data.LongDataType as LongDataType
+import ghidra.program.model.data.IntegerDataType as IntegerDataType
+import ghidra.program.model.data.PointerDataType as PointerDataType
+import ghidra.app.cmd.function.ApplyFunctionSignatureCmd as ApplyFunctionSignatureCmd
 
 
 # Look for a function called main
@@ -43,7 +48,7 @@ def getRegisterValue(start, call, register):
 
     symEval  = SymbolicPropogator(currentProgram)
     function = getFunctionContaining(call)
-    evaluate = ConstantPropagationContextEvaluator(True)
+    evaluate = ConstantPropagationContextEvaluator(monitor)
 
     symEval.flowConstants(function.getEntryPoint(), function.getBody(), evaluate, False, monitor)
 
@@ -105,7 +110,7 @@ def getStackValue(start, call, param):
     return value
 
 
-# Get any concrete value for a given paremeter in a call instruction
+# Get any concrete value for a given paremeter in a __libc_start_main candidate
 def getParam(start, call, n):
 
     inst = getInstructionAt(call)
@@ -113,6 +118,21 @@ def getParam(start, call, n):
     func = getFunctionAt(addr)
     if func is None:
         return None
+   
+    __libc_start_main_definition = FunctionDefinitionDataType("__libc_start_main")
+    main = ParameterDefinitionImpl("main", PointerDataType(), "main")
+    argc = ParameterDefinitionImpl("argc", IntegerDataType(), "argc")
+    ubp_av = ParameterDefinitionImpl("ubp_av", PointerDataType(), "ubp_av")
+    init = ParameterDefinitionImpl("init", PointerDataType(), "init")
+    fini = ParameterDefinitionImpl("fini", PointerDataType(), "fini")
+    rtld_fini = ParameterDefinitionImpl("rtld_fini", PointerDataType(), "rtld_fini")
+    stack_end = ParameterDefinitionImpl("stack_end", PointerDataType(), "stack_end")
+    __libc_start_main_definition.setArguments([main, argc, ubp_av, init, fini, rtld_fini, stack_end])
+    __libc_start_main_definition.setReturnType(IntegerDataType())
+    
+    # set the correct signature for __libc_start_main, otherwise getParameter won't find anything
+    ApplyFunctionSignatureCmd(addr, __libc_start_main_definition, SourceType.USER_DEFINED).applyTo(currentProgram, monitor)
+    func = getFunctionAt(addr)
 
     param = func.getParameter(n)
     if param is None:
@@ -130,7 +150,7 @@ def getParam(start, call, n):
 def getStartCalls():
 
     memory = MemoryByteProvider(currentProgram.getMemory(), currentProgram.getMinAddress())
-    header = ElfHeader.createElfHeader(RethrowContinuesFactory.INSTANCE, memory)
+    header = ElfHeader(memory, None)
     entry = toAddr(header.e_entry())
 
     if not entry:
