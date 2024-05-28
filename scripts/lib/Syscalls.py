@@ -580,7 +580,7 @@ class Syscalls:
     def getRegisterValue(self, addr, register):
 
         function = self.currentProgram.getListing().getFunctionContaining(addr)
-        evaluate = ConstantPropagationContextEvaluator(True)
+        evaluate = ConstantPropagationContextEvaluator(self.monitor)
 
         if function is None:
             return None
@@ -605,7 +605,7 @@ class Syscalls:
 
         listing = self.currentProgram.getListing()
         function = self.currentProgram.getListing().getFunctionContaining(addr)
-        evaluate = ConstantPropagationContextEvaluator(True)
+        evaluate = ConstantPropagationContextEvaluator(self.monitor)
 
         if function is None:
             return None
