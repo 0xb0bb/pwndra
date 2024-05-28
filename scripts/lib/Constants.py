@@ -60,7 +60,7 @@ class Constants:
 
         symEval  = SymbolicPropogator(self.currentProgram)
         function = self.currentProgram.getListing().getFunctionContaining(call)
-        evaluate = ConstantPropagationContextEvaluator(True)
+        evaluate = ConstantPropagationContextEvaluator(self.monitor)
 
         symEval.flowConstants(function.getEntryPoint(), function.getBody(), evaluate, False, self.monitor)
 
