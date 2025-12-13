@@ -5,18 +5,17 @@
 #@menupath Analysis.Pwn.Utilities.Goto Main
 #@toolbar 
 
-import ghidra.app.util.opinion.ElfLoader as ElfLoader
-import ghidra.app.util.bin.MemoryByteProvider as MemoryByteProvider
-import ghidra.app.util.bin.format.elf.ElfHeader as ElfHeader
-import generic.continues.RethrowContinuesFactory as RethrowContinuesFactory
-import ghidra.program.util.FunctionSignatureFieldLocation as FunctionSignatureFieldLocation
-import ghidra.app.plugin.core.navigation.locationreferences.ReferenceUtils as ReferenceUtils
-import ghidra.program.model.symbol.RefType as RefType
-import ghidra.program.util.SymbolicPropogator as SymbolicPropogator
-import ghidra.program.util.SymbolicPropogator.Value
-import ghidra.app.plugin.core.analysis.ConstantPropagationContextEvaluator as ConstantPropagationContextEvaluator
-import ghidra.app.emulator.EmulatorHelper as EmulatorHelper
-import ghidra.program.model.symbol.SourceType as SourceType
+from ghidra.app.util.opinion import ElfLoader
+from ghidra.app.util.bin import MemoryByteProvider
+from ghidra.app.util.bin.format.elf import ElfHeader
+
+from ghidra.program.util import FunctionSignatureFieldLocation
+from ghidra.app.plugin.core.navigation.locationreferences import ReferenceUtils
+from ghidra.program.model.symbol import RefType, SourceType
+from ghidra.program.util import SymbolicPropogator
+from ghidra.program.util.SymbolicPropogator import Value
+from ghidra.app.plugin.core.analysis import ConstantPropagationContextEvaluator
+from ghidra.app.emulator import EmulatorHelper
 
 
 # Look for a function called main
@@ -43,9 +42,16 @@ def getRegisterValue(start, call, register):
 
     symEval  = SymbolicPropogator(currentProgram)
     function = getFunctionContaining(call)
-    evaluate = ConstantPropagationContextEvaluator(True)
 
-    symEval.flowConstants(function.getEntryPoint(), function.getBody(), evaluate, False, monitor)
+    evaluate = ConstantPropagationContextEvaluator(monitor)
+
+    symEval.flowConstants(
+        function.getEntryPoint(),
+        function.getBody(),
+        evaluate,
+        False,
+        monitor
+    )
 
     result = symEval.getRegisterValue(call, register)
     if result is not None:
@@ -54,83 +60,13 @@ def getRegisterValue(start, call, register):
     return None
 
 
-# Get a value from the stack (emulation)
-def getStackValue(start, call, param):
-
-    inst = getInstructionAt(start)
-    if inst is None:
-        return None
-
-    emulatorHelper = EmulatorHelper(currentProgram)
-    emulatorHelper.setBreakpoint(call)
-    emulatorHelper.writeRegister(emulatorHelper.getPCRegister(), int(start.toString(), 16))
-
-    stackOffset = (call.getAddressSpace().getMaxAddress().getOffset() >> 1) -  0x7fff;
-    emulatorHelper.writeRegister(emulatorHelper.getStackPointerRegister(), stackOffset)
-    listing = currentProgram.getListing()
-
-    value = None
-    last  = listing.getCodeUnitAt(start).getPrevious().getAddress()
-    while not monitor.isCancelled():
-
-        emulatorHelper.step(monitor)
-
-        if monitor.isCancelled():
-            return doCancel()
-
-        address = emulatorHelper.getExecutionAddress()
-        current = currentProgram.getListing().getCodeUnitAt(address)
-
-        if address.equals(last):
-
-            goto = current.getMaxAddress().next()
-            emulatorHelper.writeRegister(emulatorHelper.getPCRegister(), int(goto.toString(), 16))
-            continue
-
-        else:
-
-            last = address
-
-        if address.equals(call):
-
-            width = currentProgram.getLanguage().getLanguageDescription().getSize() >> 3
-            start = param.getStackOffset() - width
-            value = emulatorHelper.readStackValue(start, width, True)
-
-            break
-
-    emulatorHelper.clearBreakpoint(call)
-    emulatorHelper.dispose()
-
-    return value
-
-
-# Get any concrete value for a given paremeter in a call instruction
-def getParam(start, call, n):
-
-    inst = getInstructionAt(call)
-    addr = inst.getFlows()[0]
-    func = getFunctionAt(addr)
-    if func is None:
-        return None
-
-    param = func.getParameter(n)
-    if param is None:
-        return None
-
-    if param.isRegisterVariable():
-        return getRegisterValue(start, call, param.getRegister().getBaseRegister())
-    elif param.isStackVariable():
-        return getStackValue(start, call, param)
-
-    return None
-
-
 # Get candidates for a __libc_start_main call
 def getStartCalls():
 
     memory = MemoryByteProvider(currentProgram.getMemory(), currentProgram.getMinAddress())
-    header = ElfHeader.createElfHeader(RethrowContinuesFactory.INSTANCE, memory)
+
+    # Updated API for Ghidra 11.x
+    header = ElfHeader.createElfHeader(memory, None)
     entry = toAddr(header.e_entry())
 
     if not entry:
@@ -139,6 +75,7 @@ def getStartCalls():
     func = getFunctionContaining(entry)
     blocks = func.getBody()
     calls = []
+
     for block in blocks:
 
         start = block.getMinAddress()
@@ -163,7 +100,6 @@ def getStartCalls():
     return calls
 
 
-# Rename a function that has no imported or user-defined name already
 def renameFunction(addr, name):
 
     func = getFunctionContaining(addr)
@@ -175,13 +111,10 @@ def renameFunction(addr, name):
         symbol.setName(name, SourceType.USER_DEFINED)
 
 
-# Show a nice cancel message in the console log
 def doCancel():
+    print('Operation cancelled')
 
-    print 'Operation cancelled'
 
-
-# Entry point for script
 def run():
 
     address = getMainByLabel()
@@ -193,9 +126,7 @@ def run():
             if startCalls is None:
                 return
 
-            for startCall in startCalls:
-
-                start, call, dest = startCall
+            for start, call, dest in startCalls:
 
                 main = getParam(start, call, 0)
                 if main is None:
